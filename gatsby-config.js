@@ -1,18 +1,20 @@
 module.exports = {
   siteMetadata: {
     title: "AudioC0RE",
+    siteUrl: `https://www.example.com`,
   },
   plugins: [
     {
       resolve: "gatsby-source-contentful",
       options: {
-        accessToken: "bs-CN5xAcdWsqHBFK4zJpSeR-7K8hQWHgJHJ7rc5Td0",
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
         spaceId: "xqo18pqmyhce",
       },
     },
     "gatsby-plugin-styled-components",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
+    "gatsby-plugin-sitemap",
     {
       resolve: "gatsby-source-filesystem",
       options: {
