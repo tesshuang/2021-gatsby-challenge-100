@@ -6,6 +6,7 @@ module.exports = {
   siteMetadata: {
     title: "AudioC0RE",
     siteUrl: `https://www.example.com`,
+    description: `AudioC0RE is the leading headphones sharing app in the world.`,
   },
   plugins: [
     {
@@ -27,5 +28,17 @@ module.exports = {
       },
       __key: "images",
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `AudioC0RE Leading Headphone`,
+        short_name: `AudioC0RE`,
+        start_url: `/`,
+        background_color: `#663399`,
+        icon: "src/images/icon.png",
+        theme_color: `#663399`,
+        display: `minimal-ui`,
+      },
+    }
   ],
 };
