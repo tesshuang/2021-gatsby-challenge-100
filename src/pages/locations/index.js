@@ -4,10 +4,16 @@ import SEO from '../../components/SEO';
 
 const AllLocationPage = ({ data }) => {
   const { allContentfulLocation } = data;
+  const allLocations = allContentfulLocation.edges
+    .reduce((acc, cur) => [...acc, cur.node.title.trim()], [])
+    .join(', ');
 
   return (
     <>
-      <SEO title="Locations" description={`We have offices at `} />
+      <SEO
+        title="Locations"
+        description={`We have offices at ${allLocations}`}
+      />
       <main>
         <h1>Our Office locations</h1>
         <ul>

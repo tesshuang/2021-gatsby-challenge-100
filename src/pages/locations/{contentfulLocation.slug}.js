@@ -18,7 +18,7 @@ const CityPage = ({ data }) => {
     <>
       <SEO
         title={`Location - ${contentfulLocation.title}`}
-        description={`We have offices at `}
+        description={`Our ${contentfulLocation.title} location`}
       />
       <main>
         <GatsbyImage
