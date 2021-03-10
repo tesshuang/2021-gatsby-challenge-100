@@ -1,17 +1,43 @@
 import * as React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import ReactMarkdown from 'react-markdown';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  Heading,
+  Stack,
+} from '@chakra-ui/react';
 
 const CityPage = ({ data }) => {
-  console.log(data);
   const { contentfulLocation } = data;
+  const image = getImage(contentfulLocation.heroImage);
   return (
     <main>
-      <header>
-        <Link to="/home">Go back to Home</Link>
-      </header>
-      <h1>{contentfulLocation.title}</h1>
-      <ReactMarkdown source={contentfulLocation.description.description} />
+      <GatsbyImage
+        image={image}
+        alt={contentfulLocation.title}
+        layout="fullwidth"
+        aspectRatio={4 / 3}
+      />
+      <Stack spacing={6}>
+        <Breadcrumb>
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/home">Home</BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/locations">Locations</BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbItem isCurrentPage>
+            <BreadcrumbLink href="#">{contentfulLocation.title}</BreadcrumbLink>
+          </BreadcrumbItem>
+        </Breadcrumb>
+        <Heading as="h1" size="3xl">
+          {contentfulLocation.title}
+        </Heading>
+        <ReactMarkdown source={contentfulLocation.description.description} />
+      </Stack>
     </main>
   );
 };
@@ -24,6 +50,13 @@ export const query = graphql`
       title
       description {
         description
+      }
+      heroImage {
+        gatsbyImageData(
+          placeholder: BLURRED
+          formats: [AUTO, WEBP]
+          layout: FULL_WIDTH
+        )
       }
     }
   }
