@@ -5,8 +5,11 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     title: 'AudioC0RE',
+    titleTemplate: '%s · Gatsby Challenge 2021',
     siteUrl: `https://www.example.com`,
     description: `AudioC0RE is the leading headphones sharing app in the world.`,
+    image: 'src/images/icon.png',
+    twitterUsername: '@tesslearingatsby',
   },
   plugins: [
     {
