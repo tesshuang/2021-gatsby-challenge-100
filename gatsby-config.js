@@ -49,5 +49,14 @@ module.exports = {
         accessToken: process.env.FORMIUM_TOKEN,
       },
     },
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        precachePages: [`/home`, `/about`, `/contact`, `/locations/*`],
+        workboxConfig: {
+          globPatterns: ['src/images/'],
+        },
+      },
+    },
   ],
 };
