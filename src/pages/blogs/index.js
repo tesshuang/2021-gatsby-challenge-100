@@ -6,7 +6,7 @@ export default function AllBlogsPage({ data }) {
   const { allWpPost } = data;
   return (
     <>
-      <SEO title="home" />
+      <SEO title="my blog home" />
       <h1>My WordPress Blog</h1>
       {allWpPost.nodes.map((node, index) => (
         <div key={index}>
