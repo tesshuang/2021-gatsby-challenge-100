@@ -61,5 +61,11 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: `gatsby-source-wordpress`,
+      options: {
+        url: process.env.WORDPRESS_GRAPHQL,
+      },
+    },
   ],
 };
